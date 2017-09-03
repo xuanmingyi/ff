@@ -1,0 +1,15 @@
+ff init
+
+vim config.py
+
+# modify cpu
+# modify memory
+# modify network
+
+ff start
+
+
+ff network
+ff network create 10.9.0.3/24
+
+ff ssh
