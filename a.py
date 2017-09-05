@@ -17,5 +17,12 @@ elif sys.argv[1] == "image":
         i.add(sys.argv[3], sys.argv[4])
     if sys.argv[2] == "rm":
         i.rm(sys.argv[3])
-elif sys.argv[1] == "vm":
-    pass
+elif sys.argv[1] == "network":
+    from network import Network
+    i = Network()
+    if sys.argv[2] == "list":
+        i.list()
+    if sys.argv[2] == "add":
+        i.add(sys.argv[3], sys.argv[4])
+    if sys.argv[2] == "rm":
+        i.rm(sys.argv[3])

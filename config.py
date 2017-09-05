@@ -5,7 +5,9 @@ from os.path import expanduser
 
 opts = [
     cfg.StrOpt("config_dir",
-               default=expanduser("~/.ff"))
+               default=expanduser("~/.ff")),
+    cfg.StrOpt("network_driver",
+               default="bridge")
 ]
 
 

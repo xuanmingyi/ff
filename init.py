@@ -9,4 +9,4 @@ def init():
         exit(0)
     else:
         mkdir(path)
-        mkdir(join(path, "image"))
+        mkdir(join(path, "images"))

@@ -1,6 +1,9 @@
 import random
 import string
+import subprocess
 from prettytable import PrettyTable
+from netaddr import IPNetwork
+
 
 def random_string(len=8):
     return "".join(random.sample(string.lowercase, len))
@@ -22,3 +25,23 @@ def print_table(title, data):
     for row in data:
         table.add_row(row)
     print table
+
+
+def span(command):
+    command = command.split()
+    child = subprocess.Popen(command, stdout=subprocess.PIPE,
+                             stderr=subprocess.PIPE)
+    child.wait()
+    return child.stdout.read(), child.stderr.read()
+
+
+def first_address(cidr):
+    ip_list = filter(lambda x: str(x).split(".")[-1] != '0' and \
+        str(x).split(".")[-1]!= '255', list(IPNetwork(cidr)))
+    return ip_list[0]
+
+
+def second_address(cidr):
+    ip_list = filter(lambda x: str(x).split(".")[-1] != '0' and \
+        str(x).split(".")[-1]!= '255', list(IPNetwork(cidr)))
+    return ip_list[1]

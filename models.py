@@ -1,5 +1,5 @@
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -25,6 +25,14 @@ class Image(Base):
     status = Column(String)
     md5sum = Column(String)
 
+
+class Network(Base):
+    __tablename__ = "networks"
+
+    name = Column(String, primary_key=True)
+    cird = Column(String)
+    dhcp = Column(Boolean)
+    driver = Column(String)
 
 def create_table():
     Base.metadata.create_all(engine)
